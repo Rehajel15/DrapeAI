@@ -50,6 +50,7 @@ python manage.py runserver
 ```powershell
 cd frontend
 npm install
+Copy-Item .env.example .env   # backend URL, see comment inside
 npx expo start
 ```
 

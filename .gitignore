@@ -14,6 +14,9 @@ backend/db.sqlite3
 .env.*
 !.env.example
 
+# Personal helper scripts
+start-dev.bat
+
 # Claude Code local settings
 .claude/settings.local.json
 

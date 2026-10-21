@@ -35,6 +35,9 @@ DEBUG = True
 # Comma-separated in .env, e.g. ALLOWED_HOSTS=localhost,127.0.0.1
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS', default=[])
 
+# Origins (scheme + host + port) that may call the API from a browser, e.g. the Expo web dev server
+CORS_ALLOWED_ORIGINS = env.list('CORS_ALLOWED_ORIGINS', default=[])
+
 
 # Application definition
 
@@ -45,9 +48,16 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # Third-party
+    'rest_framework',
+    'corsheaders',
+    # Local
+    'api',
 ]
 
 MIDDLEWARE = [
+    # Must come before any middleware that can generate responses (e.g. CommonMiddleware)
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
