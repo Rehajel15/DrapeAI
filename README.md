@@ -40,6 +40,7 @@ cd backend
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
+Copy-Item .env.example .env   # then set SECRET_KEY in .env
 python manage.py migrate
 python manage.py runserver
 ```

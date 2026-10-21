@@ -41,6 +41,7 @@ Learning project: an AI wardrobe app inspired by Alta. The goal is learning full
 - backend/: fresh Django 6.1 project. Project package is `config/` (settings, urls), no Django apps yet. SQLite database.
   - `djangorestframework` and `django-cors-headers` are in requirements.txt but not yet added to `INSTALLED_APPS` / `MIDDLEWARE`.
   - Celery and Redis are not installed yet.
+  - `SECRET_KEY` and `ALLOWED_HOSTS` are loaded from `backend/.env` via django-environ (template: `backend/.env.example`, `.env` is gitignored). New secrets/config go into `.env` and `.env.example` the same way.
 - frontend/: Expo SDK 58 starter template (React 19, React Native 0.88, TypeScript). Expo Router with file-based routes in `src/app/` (`_layout.tsx` = navigator); components, hooks and theme live outside `src/app/`. `typedRoutes` and `reactCompiler` are enabled in app.json. Files with a `.web.tsx` suffix are web-specific variants.
   - NativeWind 4.2.7 (Tailwind CSS 3.4) and React Native Reusables are set up via the manual install (no Reusables components added yet). NativeWind 4.2.7 officially supports only up to SDK 57; if it breaks on SDK 58, the plan is to downgrade to SDK 57.
   - Config: `tailwind.config.js`, `babel.config.js`, `metro.config.js` (input `./src/global.css`), `components.json`, `src/lib/utils.ts` (`cn` helper), `src/lib/theme.ts` (`THEME`/`NAV_THEME`). `PortalHost` is rendered in `src/app/_layout.tsx`.
