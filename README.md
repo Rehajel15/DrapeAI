@@ -13,7 +13,7 @@ An AI wardrobe app, built as a full-stack learning project (inspired by Alta).
 
 | Part     | Technology                                                        |
 | -------- | ----------------------------------------------------------------- |
-| Frontend | React Native with Expo (iOS, Android, web), Expo Router           |
+| Frontend | React Native with Expo SDK 57 (iOS, Android, web), Expo Router    |
 | Styling  | NativeWind (Tailwind CSS), React Native Reusables (UI components) |
 | Backend  | Django, Django REST Framework                                     |
 | AI       | External APIs only (planned)                                      |
@@ -30,7 +30,7 @@ DrapeAI/
 
 ### Prerequisites
 
-- Node.js 24 LTS (Expo SDK 58 requires Node >= 22.13)
+- Node.js 24 LTS
 - Python 3.14 (version used in development)
 
 ### Backend
@@ -42,8 +42,10 @@ python -m venv venv
 pip install -r requirements.txt
 Copy-Item .env.example .env   # then set SECRET_KEY in .env
 python manage.py migrate
-python manage.py runserver
+python manage.py runserver 0.0.0.0:8000   # 0.0.0.0 makes it reachable from a phone in the same network
 ```
+
+To use the app on a phone with Expo Go, add your PC's LAN IP to `ALLOWED_HOSTS` in `backend/.env`. The frontend finds the backend automatically via the Expo dev server's host.
 
 ### Frontend
 

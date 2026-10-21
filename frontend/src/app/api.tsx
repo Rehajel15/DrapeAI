@@ -4,8 +4,7 @@ import { View } from 'react-native';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Text } from '@/components/ui/text';
-
-const API_URL = process.env.EXPO_PUBLIC_API_URL;
+import { API_URL } from '@/lib/api';
 
 type HealthStatus =
   | { state: 'loading' }
