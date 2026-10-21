@@ -1,0 +1,23 @@
+# Frontend-specific rules live in frontend/.gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+backend/venv/
+
+# Django
+backend/db.sqlite3
+*.log
+
+# Environment variables (secrets, API keys)
+.env
+.env.*
+!.env.example
+
+# Claude Code local settings
+.claude/settings.local.json
+
+# Editors / OS
+.idea/
+.DS_Store
+Thumbs.db
