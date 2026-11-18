@@ -13,7 +13,7 @@ An AI wardrobe app, built as a full-stack learning project (inspired by Alta).
 
 | Part     | Technology                                                        |
 | -------- | ----------------------------------------------------------------- |
-| Frontend | React Native with Expo SDK 57 (iOS, Android, web), Expo Router    |
+| Frontend | React Native with Expo SDK 58 (iOS, Android, web), Expo Router    |
 | Styling  | NativeWind (Tailwind CSS), React Native Reusables (UI components) |
 | Backend  | Django, Django REST Framework                                     |
 | AI       | External APIs only (planned)                                      |
@@ -56,8 +56,8 @@ Copy-Item .env.example .env   # backend URL, see comment inside
 npx expo start
 ```
 
-Press `w` in the terminal to open the web version, or scan the QR code with Expo Go.
+Press `w` in the terminal to open the web version, or scan the QR code with Expo Go. The phone needs an Expo Go version for SDK 58 (see [expo.dev/go](https://expo.dev/go)).
 
 ## Status
 
-Early setup phase. The frontend is still the Expo starter template; the backend has no apps yet.
+Early phase. The onboarding is built: a welcome page that asks for the name, then age, sign-up with email and password, and a final "You're all set" page. Signing up creates the account on the backend (`POST /api/auth/signup/`). The app behind the onboarding is still the Expo starter template.

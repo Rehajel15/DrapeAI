@@ -21,7 +21,7 @@ export default function AppTabs() {
       <TabSlot style={{ height: '100%' }} />
       <TabList asChild>
         <CustomTabList>
-          <TabTrigger name="home" href="/" asChild>
+          <TabTrigger name="home" href="/home" asChild>
             <TabButton>Home</TabButton>
           </TabTrigger>
           <TabTrigger name="explore" href="/explore" asChild>
@@ -36,7 +36,13 @@ export default function AppTabs() {
   );
 }
 
-export function TabButton({ children, isFocused, ...props }: TabTriggerSlotProps) {
+// expo-router types the ref as `React.RefAttributes<View>`, but since React Native 0.88 `View`
+// as a type is the component, not the element instance a ref points to. Use the instance type
+// until expo-router fixes its typings.
+type TabButtonProps = Omit<TabTriggerSlotProps, 'ref'> &
+  React.RefAttributes<React.ComponentRef<typeof Pressable>>;
+
+export function TabButton({ children, isFocused, ...props }: TabButtonProps) {
   return (
     <Pressable {...props} style={({ pressed }) => pressed && styles.pressed}>
       <ThemedView
