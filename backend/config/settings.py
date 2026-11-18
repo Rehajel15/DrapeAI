@@ -53,7 +53,11 @@ INSTALLED_APPS = [
     'corsheaders',
     # Local
     'api',
+    'accounts',
 ]
+
+# Custom user model: logs in with the email address instead of a username
+AUTH_USER_MODEL = 'accounts.User'
 
 MIDDLEWARE = [
     # Must come before any middleware that can generate responses (e.g. CommonMiddleware)
